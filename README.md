@@ -16,7 +16,7 @@ Here are some ideas to get you started:
 ### Hi there 👋
 
 - 🔭 I’m currently working on a budget managing app.
-- 🌱 I’m currently electron
+- 🌱 I’m currently learning electron
 - 🥅 2021 Goals: Contribute more to Open Source projects, finish some of my existing projects (finally!).
 
 ### Languages and Tools:
