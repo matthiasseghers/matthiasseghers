@@ -13,11 +13,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-# Oh hi there, didn't see you there 👋
-
-- 🔭 I’m currently working on a budget managing app.
-- 🥅 2021 Goals: Contribute more to Open Source projects, finish some of my existing projects (eventually...).
-
 
 ## Technologies & Tools
 ![](https://img.shields.io/badge/OS-macOS-000000?style=flat&logo=macos&logoColor=white)
