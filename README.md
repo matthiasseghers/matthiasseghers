@@ -13,7 +13,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-I am a software engineer at Duke & Grace.
+I am a PHP Developer at icapps.
 
 ## Technologies & Tools
 | Category | Technologies |
