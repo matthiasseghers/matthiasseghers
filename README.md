@@ -26,10 +26,6 @@ Here are some of my recent projects:
 | Operating System  | [![macOS](https://img.shields.io/badge/-macOS-000000?style=flat&logo=apple&logoColor=white)](https://www.apple.com/macos/) |
 
 
-
-
-## 📈 GitHub Stats
-
-![GhLangs](https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&hide=html&theme=dark)  
-![GhStats](https://github-readme-stats.vercel.app/api/?username=matthiasseghers&theme=dark)  
-![Streak](https://github-readme-streak-stats.herokuapp.com/?user=matthiasseghers&theme=dark)
+## 📈 Stats
+![GHAllStats](https://myreadme.vercel.app/api/embed/matthiasseghers?panels=userstatistics,toprepositories,toplanguages,commitgraph) 
+![Metrics](https://metrics.lecoq.io/matthiasseghers?template=classic&base.header=0&gists=1&lines=1)
