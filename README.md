@@ -28,4 +28,3 @@ Here are some of my recent projects:
 
 ## 📈 Stats
 ![GHAllStats](https://myreadme.vercel.app/api/embed/matthiasseghers?panels=userstatistics,toprepositories,toplanguages,commitgraph) 
-![Metrics](https://metrics.lecoq.io/matthiasseghers?template=classic&base.header=0&gists=1&lines=1)
