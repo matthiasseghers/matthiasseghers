@@ -2,7 +2,7 @@
 
 I'm a PHP developer at icapps with a passion for building things. I got interested in programming when I was young and have been tinkering with code ever since. I love solving problems and creating elegant solutions that make people's lives easier.
 
-[![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=xamthii&cover_image=true&theme=natemoo-re&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=true)](https://spotify-github-profile.vercel.app/api/view?uid=xamthii&redirect=true)
+![My scrobbles](https://lastfm-recently-played.vercel.app/api?user=Xamthi)
 
 <!--
 ## 🚀 My Projects
