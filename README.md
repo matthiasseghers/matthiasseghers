@@ -1,4 +1,6 @@
 # Hi there, I'm Matthias! 👋
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=matthiasseghers&label=Profile%20views&color=0e75b6&style=flat" alt="matthiasseghers" /> </p>
+
 
 I'm a PHP developer at icapps with a passion for building things. I got interested in programming when I was young and have been tinkering with code ever since. I love solving problems and creating elegant solutions that make people's lives easier.
 
@@ -27,4 +29,11 @@ Here are some of my recent projects:
 
 
 ## 📈 Stats
-![GHAllStats](https://myreadme.vercel.app/api/embed/matthiasseghers?panels=userstatistics,toprepositories,toplanguages,commitgraph) 
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=matthiasseghers" alt="matthiasseghers" /></a> </p>
+
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=matthiasseghers&show_icons=true&locale=en&layout=compact" alt="matthiasseghers" /></p>
+
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=matthiasseghers&show_icons=true&locale=en" alt="matthiasseghers" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=matthiasseghers&" alt="matthiasseghers" /></p>
+
