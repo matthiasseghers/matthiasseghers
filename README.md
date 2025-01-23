@@ -29,11 +29,10 @@ Here are some of my recent projects:
 
 
 ## 📈 Stats
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=matthiasseghers" alt="matthiasseghers" /></a> </p>
+[![trophy](https://github-profile-trophy.vercel.app/?username=matthiasseghers&theme=nord)](https://github.com/ryo-ma/github-profile-trophy)
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=matthiasseghers&show_icons=true&locale=en&layout=compact" alt="matthiasseghers" /></p>
+<p>
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=matthiasseghers&show_icons=true&locale=en&layout=compact" alt="matthiasseghers" />
+</p>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=matthiasseghers&show_icons=true&locale=en" alt="matthiasseghers" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=matthiasseghers&" alt="matthiasseghers" /></p>
-
