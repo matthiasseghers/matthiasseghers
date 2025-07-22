@@ -1,22 +1,59 @@
 # Hi there, I'm Matthias! 👋
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=matthiasseghers&label=Profile%20views&color=0e75b6&style=flat" alt="matthiasseghers" /> </p>
 
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=matthiasseghers&label=Profile%20views&color=0e75b6&style=flat" alt="matthiasseghers" />
+</p>
 
-I'm a PHP developer at icapps with a passion for building things. I got interested in programming when I was young and have been tinkering with code ever since. I love solving problems and creating elegant solutions that make people's lives easier.
+```
+matthiasseghers@github:~$ whoami
+Matthias Seghers
+```
 
+```
+matthiasseghers@github:~$ cat about_me.txt
+PHP developer at icapps with a passion for building things.
+Interested in programming since a young age, always tinkering and learning.
+I love solving problems and creating elegant solutions that make people's lives easier.
+```
+
+## 🎵 Now Playing
+
+```
+matthiasseghers@github:~$ musicctl --recent
+Fetching recent tracks from Last.fm...
+```
 ![My scrobbles](https://lastfm-recently-played.vercel.app/api?user=Xamthi)
 
-<!--
-## 🚀 My Projects
-
-Here are some of my recent projects:
-
-- [Project 1](link): A description of project 1.
-- [Project 2](link): A description of project 2.
-- [Project 3](link): A description of project 3.
--->
-
 ## 💻 My Tech Stack
+
+```
+matthiasseghers@github:~$ tree skills
+
+skills
+├── Programming
+│   ├── JavaScript
+│   ├── TypeScript
+│   ├── PHP
+│   └── Python
+├── Frontend
+│   └── React
+├── Backend
+│   ├── Symfony
+│   ├── Laravel
+│   └── Sulu
+├── Database
+│   └── MySQL
+├── DevOps
+│   ├── Docker
+│   └── Git
+├── Tools
+│   ├── VSCode
+│   ├── PHPStorm
+│   ├── iTerm2
+│   └── Postman
+└── OS
+    └── macOS
+```
 
 | Category          | Technologies                                                                                                                     |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -27,8 +64,11 @@ Here are some of my recent projects:
 | Tools             | [![VSCode](https://img.shields.io/badge/-VSCode-007ACC?style=flat&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/) [![PHPStorm](https://img.shields.io/badge/-PHPStorm-000000?style=flat&logo=phpstorm&logoColor=white)](https://www.jetbrains.com/phpstorm/) [![iTerm2](https://img.shields.io/badge/-iTerm2-000000?style=flat&logo=iterm2&logoColor=white)](https://iterm2.com/) [![Postman](https://img.shields.io/badge/-Postman-FF6C37?style=flat&logo=postman&logoColor=white)](https://www.postman.com/) |
 | Operating System  | [![macOS](https://img.shields.io/badge/-macOS-000000?style=flat&logo=apple&logoColor=white)](https://www.apple.com/macos/) |
 
-
 ## 📈 Stats
+
+```
+matthiasseghers@github:~$ github-stats --user matthiasseghers
+```
 [![trophy](https://github-profile-trophy.vercel.app/?username=matthiasseghers&theme=nord)](https://github.com/ryo-ma/github-profile-trophy)
 
 <p>
