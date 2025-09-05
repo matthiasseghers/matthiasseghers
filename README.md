@@ -1,6 +1,6 @@
 # Hi there, I'm Matthias! 👋
+[![trophy](https://pixel-profile.vercel.app/api/github-stats?username=matthiasseghers&include_all_commits=true&theme=crt)
 
-![Stats Summary](https://pixel-profile.vercel.app/api/github-stats?username=matthiasseghers&include_all_commits=true&theme=crt)
 
 ![Terminal Animation](https://raw.githubusercontent.com/matthiasseghers/matthiasseghers/refs/heads/main/assets/terminal.gif)
 
