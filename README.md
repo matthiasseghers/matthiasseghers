@@ -4,56 +4,10 @@
   <img src="https://komarev.com/ghpvc/?username=matthiasseghers&label=Profile%20views&color=0e75b6&style=flat" alt="matthiasseghers" />
 </p>
 
-```
-matthiasseghers@github:~$ whoami
-Matthias Seghers
-```
-
-```
-matthiasseghers@github:~$ cat about_me.txt
-PHP developer at icapps with a passion for building things.
-Interested in programming since a young age, always tinkering and learning.
-I love solving problems and creating elegant solutions that make people's lives easier.
-```
-
 ## 🎵 Now Playing
-
-```
-matthiasseghers@github:~$ musicctl --recent
-Fetching recent tracks from Last.fm...
-```
 ![My scrobbles](https://lastfm-recently-played.vercel.app/api?user=Xamthi)
 
 ## 💻 My Tech Stack
-
-```
-matthiasseghers@github:~$ tree skills
-
-skills
-├── Programming
-│   ├── JavaScript
-│   ├── TypeScript
-│   ├── PHP
-│   └── Python
-├── Frontend
-│   └── React
-├── Backend
-│   ├── Symfony
-│   ├── Laravel
-│   └── Sulu
-├── Database
-│   └── MySQL
-├── DevOps
-│   ├── Docker
-│   └── Git
-├── Tools
-│   ├── VSCode
-│   ├── PHPStorm
-│   ├── iTerm2
-│   └── Postman
-└── OS
-    └── macOS
-```
 
 | Category          | Technologies                                                                                                                     |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -65,10 +19,6 @@ skills
 | Operating System  | [![macOS](https://img.shields.io/badge/-macOS-000000?style=flat&logo=apple&logoColor=white)](https://www.apple.com/macos/) |
 
 ## 📈 Stats
-
-```
-matthiasseghers@github:~$ github-stats --user matthiasseghers
-```
 [![trophy](https://github-profile-trophy.vercel.app/?username=matthiasseghers&theme=nord)](https://github.com/ryo-ma/github-profile-trophy)
 
 <p>
