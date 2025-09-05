@@ -2,9 +2,6 @@
 
 ![Terminal Animation](https://raw.githubusercontent.com/matthiasseghers/matthiasseghers/refs/heads/main/assets/terminal.gif)
 
-## 🎵 Now Playing
-![My scrobbles](https://lastfm-recently-played.vercel.app/api?user=Xamthi)
-
 ## 💻 My Tech Stack
 
 | Category          | Technologies                                                                                                                     |
