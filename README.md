@@ -1,5 +1,10 @@
 # Hi there, I'm Matthias! 👋
-[![trophy](https://pixel-profile.vercel.app/api/github-stats?username=matthiasseghers&include_all_commits=true&theme=crt)
+
+<picture decoding="async" loading="lazy">
+  <source media="(prefers-color-scheme: light)" srcset="https://pixel-profile.vercel.app/api/github-stats?username=matthiasseghers&theme=summer&include_all_commits=true">
+  <source media="(prefers-color-scheme: dark)" srcset="https://pixel-profile.vercel.app/api/github-stats?username=matthiasseghers&screen_effect=true&theme=blue_chill&inclue_all_commits=true">
+  <img alt="github stats" src="https://pixel-profile.vercel.app/api/github-stats?username=matthiasseghers&theme=summer&include_all_commits=true">
+</picture>
 
 
 ![Terminal Animation](https://raw.githubusercontent.com/matthiasseghers/matthiasseghers/refs/heads/main/assets/terminal.gif)
