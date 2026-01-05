@@ -1,0 +1,603 @@
+name: Generate Metrics
+
+on:
+  schedule:
+    - cron: '30 23 * * *'
+  workflow_dispatch:
+
+env:
+  CONFIG_TIMEZONE: Europe/Brussels
+  METRICS_PATH: assets/metrics
+  OUPUT_ACTION: none
+  
+  DEFAULT_LIMIT: 4
+  CALENDAR_LIMIT: 10
+  LANGUAGE_LIMIT: 8
+  
+  HABITS_DAYS: 28
+  HABITS_FROM: 500
+
+jobs:
+  ###########################################################################
+  # Generate individual metric artifacts
+  # - output_action: none - Don't commit yet, collect all artifacts first
+  # - continue-on-error: true - If one metric fails, others continue
+  ###########################################################################
+  # TODO: check if differece between default, short and full metrics job step
+
+  intro-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🙋 Generate Introduction
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_introduction: yes
+      - name: 📤 Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  languages-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🈷️ Generate Most Used Langauges (With Details)
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_languages: yes
+          plugin_languages_details: bytes-size, lines, percentage
+          plugin_languages_limit: 8
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_recent_days: 365
+          plugin_languages_other: yes
+      - name:  📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  lines-code-changed:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 👨‍💻 Generate Lines of Code Changed Metric
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_lines: yes
+          plugin_lines_sections: repositories, history
+          plugin_lines_repositories_limit: 2
+          plugin_lines_history_limit: 1
+          repositories_skipped: |
+            @use.patterns
+            */*
+            +lowlighter/metrics
+      - name:  📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  starred-topics-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📌 Generate Starred Topics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_topics: yes
+          plugin_topics_limit: 20
+          plugin_topics_mode: icons
+      - name: 📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+  
+  coding-habits-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 💡 Generate Coding Habits
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_habits: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_habits_days: ${{ env.HABITS_DAYS }}
+          plugin_habits_from: ${{ env.HABITS_FROM }}
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+      - name:  📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  ticket-metrics:
+      runs-on: ubuntu-latest
+      continue-on-error: true
+      steps:
+        - uses: actions/checkout@v4
+        - name: 🎟️ Generate Ticket Metrics
+          uses: lowlighter/metrics@latest
+          with:
+            filename: ${{ github.job }}.svg
+            token: ${{ secrets.BOT_TOKEN }}
+            user: ${{ github.repository_owner }}
+            output_action: none
+            base: ""
+            plugin_followup: yes
+            plugin_followup_indepth: yes
+        - name: 📤 Upload Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ github.job }}-artifact
+            path: /metrics_renders/${{ github.job }}.svg
+
+  reactions-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🎭 Generate Reactions
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: ""
+          plugin_reactions: yes
+          plugin_reactions_limit: 800
+          plugin_reactions_limit_issues: 800
+          plugin_reactions_limit_discussions: 800
+          plugin_reactions_limit_discussions_comments: 800
+          plugin_reactions_details: percentage, count
+      - name: 📤 Upload Reactions Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  # People metric - IGNORE for now
+  # Sponsors metric - IGNORE for now
+
+  featured-projects:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📓 Generate Repositories
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          filename: ${{ github.job }}.svg
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_repositories: yes
+          plugin_repositories_featured: >-
+            matthiasseghers/matthiasseghers
+      - name: 📤 Upload Repositories Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  discussions-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 💬 Generate Discussions
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          filename: ${{ github.job }}.svg
+          user: ${{ github.repository_owner }}
+          output_action: ${{ env.OUPUT_ACTION }}
+          base: ""
+          plugin_discussions: yes
+          plugin_discussions_categories_limit: 12
+      - name: 📤 Upload Discussions Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  starlists-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 💫 Generate Star lists
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: ""
+          plugin_starlists: yes
+          plugin_starlists_languages: yes
+          plugin_starlists_limit_languages: 12
+          plugin_starlists_limit_repositories: 0
+      - name: 📤 Upload Star lists Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  commit-calendar:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📆 Generate Contributions
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          template: classic
+          output_action: none
+          base: ""
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+          plugin_calendar: yes
+          plugin_calendar_limit: 10
+      - name: 📤 Upload Contributions Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+          
+  achievement-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🏆 Generate Achievements
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: ""
+          plugin_achievements: yes
+          plugin_achievements_threshold: C
+          plugin_achievements_display: detailed
+      - name: 📤 Upload Achievements Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  notable-contributions:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🌟 Generate Notable Contributions
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: ""
+          plugin_notable: yes
+          plugin_notable_from: all
+          plugin_notable_types: commit, pr, issue
+      - name: 📤 Upload Notable Contributions Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  activity-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📰 Generate Recent Activity
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: ""
+          plugin_activity: yes
+          plugin_activity_limit: 15
+          plugin_activity_days: 0
+          plugin_activity_filter: issue, pr, release, fork, review, ref/create, public
+      - name: Upload Activity Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  gists-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🎫 Generate Gists
+        uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: ""
+          plugin_gists: yes
+      - name: 📤 Upload Gists Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  leetcode-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🗳️ Generate LeetCode Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          base: header, activity, community, repositories, metadata
+          token: ${{ secrets.BOT_TOKEN }}
+          filename: ${{ github.job }}.svg
+          user: ${{ github.repository_owner }}
+          output_action: none
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+          plugin_leetcode: yes
+          plugin_leetcode_limit_recent: 2
+          plugin_leetcode_limit_skills: 10
+          plugin_leetcode_sections: solved
+          # TODO: change with leetcode username
+          plugin_leetcode_user: .user.login
+      - name: 📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+      
+  # Complete metric sets.
+  all-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate All
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          filename: assets/metrics/all.svg
+          user: ${{ github.repository_owner }}
+          template: classic
+          output_action: none
+          base: header, activity, community, repositories, metadata
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_secrets: yes
+          plugin_achievements_threshold: B
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+          plugin_habits: yes
+          plugin_habits_charts_type: classic
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_from: 200
+          plugin_introduction: yes
+          plugin_introduction_title: yes
+          plugin_lines: yes
+          plugin_notable: yes
+          plugin_notable_from: all
+          plugin_notable_types: commit
+          plugin_people: yes
+          plugin_people_limit: 24
+          plugin_people_size: 28
+          plugin_people_types: followers, following
+          plugin_projects: yes
+          plugin_projects_limit: 4
+          plugin_reactions: yes
+          plugin_reactions_display: absolute
+          plugin_reactions_limit: 200
+          plugin_reactions_limit_discussions: 100
+          plugin_reactions_limit_discussions_comments: 100
+          plugin_reactions_limit_issues: 100
+          plugin_sponsors: yes
+          plugin_sponsors_sections: goal, list
+          plugin_sponsors_size: 24
+          plugin_traffic: yes
+          plugin_gists: yes
+          plugin_discussions: yes
+      - name: Upload All Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  shorter-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate Shorter Summary
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          filename: assets/metrics/summary.svg
+          user: ${{ github.repository_owner }}
+          template: terminal
+          output_action: none
+          base: activity, community, repositories
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+          plugin_habits: yes
+          plugin_habits_charts_type: classic
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_from: 200
+          plugin_traffic: yes
+          plugin_lines: yes
+          plugin_discussions: yes
+          plugin_discussions_categories: no
+      - name: Upload Summary Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  default-metrics:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate metrics
+        uses:  lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          user: ${{ github.repository_owner }}
+          output_action: none
+          base: header, activity, community, repositories, metadata
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+      - name:  📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  terminal-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: ${{ github.job }}.svg
+          token: ${{ secrets.BOT_TOKEN }}
+          # Options
+          user: ${{ github.repository_owner }}
+          template: terminal
+          output_action: none
+          base: header, activity, community, repositories, metadata
+          config_timezone: ${{ env.CONFIG_TIMEZONE }}
+          plugin_calendar: yes
+          plugin_calendar_limit: 1
+          plugin_gists: yes
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_analysis_timeout_repositories: 7.5
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_recent_categories: markup, programming
+          plugin_languages_recent_days: 14
+          plugin_languages_recent_load: 300
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
+          plugin_lines: yes
+          plugin_lines_history_limit: 1
+          plugin_lines_repositories_limit: 4
+          plugin_lines_sections: base
+      - name:  📤 Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.job }}-artifact
+          path: /metrics_renders/${{ github.job }}.svg
+
+  ##################################################################################
+  # Push all metrics: Download artifacts, commit all metrics once using bot's token
+  ##################################################################################
+
+  commit-changes:
+    runs-on: ubuntu-latest
+    needs:
+      - intro-metrics
+      - languages-metrics
+      - lines-code-changed
+      - starred-topics-metrics
+      - coding-habits-metrics
+      - ticket-metrics
+      - reactions-metrics
+      - featured-projects
+      - discussions-metrics
+      - starlists-metrics
+      - commit-calendar
+      - achievement-metrics
+      - notable-contributions
+      - activity-metrics
+      - gists-metrics
+      - leetcode-metrics
+      - all-metrics
+      - default-metrics
+      - shorter-metrics
+      - terminal-metrics
+    permissions:
+      contents: write
+    steps:
+      - name: 🔄 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: 📥 Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts-temp
+
+      - name: 📂 Move files
+        run: |
+          mkdir -p ${{ env.METRICS_PATH }}
+          find artifacts-temp -type f -name '*.svg' -exec mv {} ${{ env.METRICS_PATH }}/ \;
+          rm -rf artifacts-temp
+
+      - name: 🔧 Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config pull.rebase true
+
+      - name: 📤 Commit & Push
+        run:  |
+          git add assets/metrics/*.svg
+          git pull --rebase --autostash
+          git diff --quiet && git diff --staged --quiet || (git commit -m "📊 Update metrics" && git push)
