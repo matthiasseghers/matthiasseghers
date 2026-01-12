@@ -2,23 +2,27 @@
 
 <div align="center">
 
-[← Back to Profile](README.md)
+[← Back to Profile](README.md) | [Overview](#-overview) | [Languages](#-languages) | [Activity](#-activity) | [Achievements](#-achievements) | [Community](#-community--engagement)
 
 </div>
 
 ---
 
-## Contributions
+<div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-green.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-gitblock.svg">
-  <img alt="GitHub 3D Contribution Graph" src="./profile-3d-contrib/profile-green.svg">
-</picture>
+![Introduction Metrics](./assets/metrics/intro-metrics.svg)
+
+</div>
 
 ---
 
-## Stats
+## 📈 Overview
+
+<div align="center">
+
+![Default Metrics](./assets/metrics/default-metrics.svg)
+
+</div>
 
 <div align="center">
 
@@ -46,105 +50,154 @@
 
 ---
 
-## 💻 Language Statistics
+## � Activity
 
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&layout=compact&theme=dark&hide_border=true&langs_count=8">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&layout=compact&theme=default&hide_border=true&langs_count=8">
-  <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&layout=compact&theme=dark&hide_border=true&langs_count=8">
-</picture>
-
-</div>
-
-### Detailed Language Breakdown
-
-<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&layout=donut&theme=dark&hide_border=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&layout=donut&theme=default&hide_border=true">
-  <img alt="Language Donut Chart" src="https://github-readme-stats.vercel.app/api/top-langs/?username=matthiasseghers&layout=donut&theme=dark&hide_border=true">
+  <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-green.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-gitblock.svg">
+  <img alt="GitHub 3D Contribution Graph" src="./profile-3d-contrib/profile-green.svg">
 </picture>
 
-</div>
-
----
-
-## 🏆 GitHub Trophies
-
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=matthiasseghers&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=matthiasseghers&theme=flat&no-frame=true&no-bg=true&row=1&column=7">
-  <img alt="GitHub Trophies" src="https://github-profile-trophy.vercel.app/?username=matthiasseghers&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7">
-</picture>
+![Commit Calendar](./assets/metrics/commit-calendar.svg)
 
 </div>
 
----
+<div align="center">
 
-## 📊 Contribution Graph
+![Activity Metrics](./assets/metrics/activity-metrics.svg)
+
+</div>
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=matthiasseghers&theme=github-dark&hide_border=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=matthiasseghers&theme=github-light&hide_border=true">
-  <img alt="Contribution Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph?username=matthiasseghers&theme=github-dark&hide_border=true">
-</picture>
+![Lines of Code Changed](./assets/metrics/lines-code-changed.svg)
 
 </div>
 
 ---
 
-## ⏰ Coding Time Distribution
+## 💻 Languages
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/wakatime?username=matthiasseghers&theme=dark&hide_border=true&layout=compact">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/wakatime?username=matthiasseghers&theme=default&hide_border=true&layout=compact">
-  <img alt="WakaTime Stats" src="https://github-readme-stats.vercel.app/api/wakatime?username=matthiasseghers&theme=dark&hide_border=true&layout=compact">
-</picture>
-
-*Note: WakaTime integration requires additional setup*
+![Languages Metrics](./assets/metrics/languages-metrics.svg)
 
 </div>
 
 ---
 
-## 📌 Pinned Repositories
-
-<!--
-You can add your pinned repositories here manually:
-
+## 🏆 Achievements
 <div align="center">
 
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=matthiasseghers&repo=your-repo-name&theme=dark&hide_border=true)](https://github.com/matthiasseghers/your-repo-name)
+![Achievement Metrics](./assets/metrics/achievement-metrics.svg)
 
 </div>
--->
 
 ---
 
-## 🌟 Recent Activity
+## � Community & Engagement
 
-<!--START_SECTION:activity-->
-<!-- This section can be auto-updated with a GitHub Action -->
-<!--END_SECTION:activity-->
-
----
 
 <div align="center">
 
-### Last Updated
+![Discussions Metrics](./assets/metrics/discussions-metrics.svg)
 
-This page is automatically updated weekly via GitHub Actions
+</div>
+
+<div align="center">
+
+![Reactions Metrics](./assets/metrics/reactions-metrics.svg)
+
+</div>
+
+<div align="center">
+
+![Notable Contributions](./assets/metrics/notable-contributions.svg)
+
+</div>
+
+---
+
+## 🎯 Development Insights
+
+<div align="center">
+
+![Coding Habits](./assets/metrics/coding-habits-metrics.svg)
+
+</div>
+
+---
+
+## 📦 Projects & Code
+
+<div align="center">
+
+![Featured Projects](./assets/metrics/featured-projects.svg)
+
+</div>
+
+<div align="center">
+
+![Gists Metrics](./assets/metrics/gists-metrics.svg)
+
+</div>
+
+<div align="center">
+
+![Ticket Metrics](./assets/metrics/ticket-metrics.svg)
+
+</div>
+
+---
+
+## ⭐ Stars & Interests
+
+<div align="center">
+
+![Star Lists](./assets/metrics/starlists-metrics.svg)
+
+</div>
+
+<div align="center">
+
+![Starred Topics](./assets/metrics/starred-topics-metrics.svg)
+
+</div>
+
+---
+
+## 💻 Coding Challenges
+
+<div align="center">
+
+![LeetCode Metrics](./assets/metrics/leetcode-metrics.svg)
+
+</div>
+
+---
+
+## 📌 Additional Information
+
+### Profile Views
+
+<div align="center">
 
 ![Profile Views](https://komarev.com/ghpvc/?username=matthiasseghers&color=green&style=flat)
+
+</div>
+
+---
+
+<div align="center">
+
+### 📝 About These Metrics
+
+_These statistics are automatically generated using [GitHub Metrics](https://github.com/lowlighter/metrics) and various GitHub APIs. The visualizations provide comprehensive insights into coding activity, contributions, and community engagement._
+
+**Last Updated:** Automatically updated weekly via GitHub Actions
 
 ---
 

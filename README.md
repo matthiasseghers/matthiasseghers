@@ -84,6 +84,8 @@ class Developer
   <img alt="GitHub 3D Contribution Graph" src="./profile-3d-contrib/profile-green.svg">
 </picture>
 
+**[📊 View Full Statistics →](STATS.md)**
+
 </div>
 
 ---
